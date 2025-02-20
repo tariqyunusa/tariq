@@ -1,0 +1,42 @@
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+@font-face{
+  font-family: "Canela";
+  src: url('/public/fonts/CanelaDeck-Black-Trial.otf');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face{
+  font-family: "Canela";
+  src: url('/public/fonts/CanelaDeck-Bold-Trial.otf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face{
+  font-family: "Canela";
+  src: url('/public/fonts/CanelaDeck-Light-Trial.otf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face{
+  font-family: "Canela";
+  src: url('/public/fonts/CanelaDeck-Medium-Trial.otf');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face{
+  font-family: "Canela";
+  src: url('/public/fonts/CanelaDeck-Regular-Trial.otf');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face{
+  font-family: "Canela";
+  src: url('/public/fonts/CanelaDeck-Thin-Trial.otf');
+  font-weight: 100;
+  font-style: normal;
+}
