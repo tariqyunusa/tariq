@@ -1,0 +1,30 @@
+@font-face{
+    font-family: "Canela";
+    src: url('/public/fonts/CanelaDeck-Thin-Trial.otf');
+    font-weight: 100;
+    font-style: normal;
+}
+
+.navbar{
+    padding: 1rem 2rem;
+    border-radius: 18px;
+    background-color: #fff;
+    position: fixed;
+    bottom: 10%;
+    left: 45%;
+    cursor: pointer;
+}
+.navbar__ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.navbar__list_item{
+    font-family: "Canela", serif;
+    font-size: 24px;
+    font-weight: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
