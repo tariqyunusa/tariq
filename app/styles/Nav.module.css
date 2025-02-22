@@ -5,15 +5,17 @@
     font-style: normal;
 }
 
-.navbar{
+.navbar {
     padding: 1rem 2rem;
     border-radius: 18px;
     background-color: #fff;
     position: fixed;
     bottom: 10%;
-    left: 45%;
+    left: 50%;
+    transform: translateX(-50%);
     cursor: pointer;
 }
+
 .navbar__ul{
     display: flex;
     flex-direction: column;
@@ -22,9 +24,15 @@
 }
 .navbar__list_item{
     font-family: "Canela", serif;
-    font-size: 24px;
+    font-size: clamp(0.875rem, 2vw, 1.5rem);
     font-weight: 100;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (min-width: 320px) and(max-width: 600px) {
+    .navbar__list_item{
+        font-size: 12px;
+    }
 }

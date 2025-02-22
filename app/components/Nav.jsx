@@ -11,17 +11,17 @@ export default function Nav() {
     const [activeLink, setActiveLink] = useState(links[links.length - 1])
     return(
         <>
-            <motion.nav layout className={styles.navbar} onClick={() => setShowNav(!showNav)} transition={{duration: 0.6, type: "spring", stiffness: 60}}>
-                <ul className={styles.navbar__ul}>
+            <motion.nav  className={styles.navbar} onClick={() => setShowNav(!showNav)} >
+                <motion.ul layout className={styles.navbar__ul} transition={{duration: 0.6, type: "spring", stiffness: 60}}>
                     <AnimatePresence>
                     {showNav ? links.map((link, idx) => (
-                    <motion.li initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.4, delay: 0.2}} key={idx} onClick={() => setActiveLink(link)} className={styles.navbar__list_item}>{link}</motion.li>
+                    <motion.li initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.2, delay: 0.1}} key={idx} onClick={() => setActiveLink(link)} className={styles.navbar__list_item}>{link}</motion.li>
                    )) : ""}
                     </AnimatePresence>
                    {!showNav && (
-                    <motion.li className={styles.navbar__list_item} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.1, delay: 0.1}}>{activeLink} <FiChevronUp /></motion.li>
+                    <motion.li className={styles.navbar__list_item} >{activeLink} <FiChevronUp /></motion.li>
                    )}
-                </ul>
+                </motion.ul>
                 
             </motion.nav>
         </>
