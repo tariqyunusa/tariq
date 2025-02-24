@@ -10,7 +10,6 @@
   background-color: #F5F3EB;
   padding-inline: 2rem;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
 }
 .hero__section_main_text{
@@ -20,7 +19,6 @@
 .hero__section_main_text h1{
   font-family: "Canela", serif;
   font-weight: 100;
-  font-size: clamp(1rem, 5vw, 3rem);
+  font-size: clamp(1rem, 5vw, 3.5rem);
   line-height: 1.2em;
-
 }

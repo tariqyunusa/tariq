@@ -1,0 +1,27 @@
+.popup__span{
+    position: relative;
+    cursor: pointer;
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #d1d1d1;
+    text-decoration-thickness: 3px;
+}
+.__popup{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -4rem;
+    left: 50%;
+    transform: translateX("-50%");
+    z-index: 9999;
+}
+.__popup video{
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
