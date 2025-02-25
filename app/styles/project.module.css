@@ -1,0 +1,38 @@
+@font-face{
+    font-family: "Canela";
+    src: url('/fonts/CanelaDeck-Thin-Trial.otf');
+    font-weight: 100;
+    font-style: normal;
+}
+.project{
+    width: 100%;
+    height: 100px;
+    /* padding:1rem 0; */
+    border-bottom: 1px solid #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.project h1{
+    font-family: "Canela", sans-serif;
+    font-weight: 100;
+    font-size: 24px;
+    width: 30%;
+}
+.stack{
+    display: flex;
+    justify-content: flex-start;
+    width: 25%;
+    height: 100%;
+    align-items: center;
+}
+.stack__item{
+    font-family: "Canela", sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+}
+.filler{
+    width: 25%;
+    height: 100%;
+}

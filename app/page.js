@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import Popup from "./components/Popup";
+import Projects from "./Projects";
 
 export default function Home() {
   const [activePopup, setActivePopup] = useState(null);
@@ -45,6 +46,7 @@ export default function Home() {
           </h1>
         </div>
       </section>
+      <Projects />
     </>
   );
 }
