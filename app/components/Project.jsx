@@ -4,17 +4,22 @@ import gsap from "gsap";
 
 const Project = ({ projects }) => {
   const hoverRefs = useRef([]);
+  const projectRefs = useRef([]);
 
   useEffect(() => {
-   
-    hoverRefs.current.forEach((el) => {
-      if (el) gsap.set(el, { y: "-100%" });
-    });
+    hoverRefs.current.forEach((el) => el && gsap.set(el, { y: "-100%" }));
+    projectRefs.current.forEach((el) => el && gsap.set(el, { y: "0%" }));
   }, []);
 
   const handleMouseEnter = (idx) => {
     gsap.to(hoverRefs.current[idx], {
-      y: "0%", // Moves it into view
+      y: "0%",
+      duration: 0.4,
+      ease: "power2.out",
+    });
+
+    gsap.to(projectRefs.current[idx], {
+      y: "100%",
       duration: 0.4,
       ease: "power2.out",
     });
@@ -22,16 +27,23 @@ const Project = ({ projects }) => {
 
   const handleMouseLeave = (idx) => {
     gsap.to(hoverRefs.current[idx], {
-      y: "-100%", // Moves it back up
+      y: "-100%",
       duration: 0.4,
+      ease: "power2.in"
+    });
+
+    gsap.to(projectRefs.current[idx], {
+      y: "0%",
       ease: "power2.in",
+      duration: 0.4,
     });
   };
 
   return (
-    <div>
+    <div className={styles.project__link}>
       {projects.map((project, idx) => (
         <div
+        
           key={idx}
           className={styles.project__link_both}
           onMouseEnter={() => handleMouseEnter(idx)}
@@ -42,9 +54,15 @@ const Project = ({ projects }) => {
             ref={(el) => (hoverRefs.current[idx] = el)}
           >
             <h1>{project.alt}</h1>
-            <p>{project.link}</p>
+            <div className={styles.stack}>{project.stack.map((p, i) => (
+                <p key={i} className={styles.stack__item}>{p}</p>
+            ))}</div>
+            <p className={styles.link}>{project.link}</p>
           </div>
-          <div className={styles.project}>
+          <div
+            className={styles.project}
+            ref={(el) => (projectRefs.current[idx] = el)}
+          >
             <h1>{project.name}</h1>
             <div className={styles.stack}>
               {project.stack.map((stack, stackIdx) => (
