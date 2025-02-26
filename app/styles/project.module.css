@@ -4,17 +4,39 @@
     font-weight: 100;
     font-style: normal;
 }
+.project__link_both {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.hover_active {
+    width: 100%;
+    height: 100px;
+    background-color: #000;
+    color: #F5F3EB;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .project{
     width: 100%;
     height: 100px;
-    /* padding:1rem 0; */
     border-bottom: 1px solid #000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: 0; */
 }
-.project h1{
+
+.project h1, .hover_active h1{
     font-family: "Canela", sans-serif;
     font-weight: 100;
     font-size: 24px;
@@ -27,11 +49,22 @@
     height: 100%;
     align-items: center;
 }
-.stack__item{
+.stack__item, .hover_active p{
     font-family: "Canela", sans-serif;
     font-weight: 100;
     font-size: 20px;
 }
+.hover_active{
+    width: 100%;
+    height: 100px;
+    background-color: #000;
+    color: #F5F3EB;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
 .filler{
     width: 25%;
     height: 100%;
