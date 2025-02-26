@@ -1,5 +1,5 @@
 "use client"
-import Nav from "./components/Nav";
+
 import { useEffect } from "react";
 
 import "./globals.css";
@@ -12,12 +12,12 @@ gsap.registerPlugin(ScrollTrigger)
 export default function ClientLayout({ children }) {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2, // Smoothness duration (higher = smoother)
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing
+      duration: 2.2, 
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smooth: true,
-      wheelMultiplier: 1, // Adjust scrolling strength
-      touchMultiplier: 2, // Makes mobile touch scrolling smoother
-      infinite: false, // Disable infinite scrolling unless needed
+      wheelMultiplier: 2, 
+      touchMultiplier: 2, 
+      infinite: false, 
     });
     
     lenis.on("scroll", ScrollTrigger.update);
@@ -37,7 +37,7 @@ export default function ClientLayout({ children }) {
     <html lang="en">
       <body>
         {children}
-        <Nav />
+        
       </body>
     </html>
   );
