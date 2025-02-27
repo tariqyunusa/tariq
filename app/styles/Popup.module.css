@@ -1,7 +1,7 @@
 .popup__span {
     position: relative;
     cursor: pointer;
-    text-decoration: none; /* Remove default underline */
+    text-decoration: none; 
 }
 
 .popup__span::after {
