@@ -1,0 +1,23 @@
+@font-face{
+    font-family: "Canela";
+    src: url('/fonts/CanelaDeck-Thin-Trial.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+  }
+.about__section{
+    width: 99vw;
+    height: 100vh;
+    padding-inline: 2rem;
+    display: flex;
+    background-color: #F5F3EB;
+    align-items: center;
+}
+.about__section_text__wrapper{
+    max-width: 1024px;
+}
+.about__header{
+    font-family: "Canela", serif;
+    font-weight: 100;
+    font-size: clamp(1rem, 5vw, 3.5rem);
+    line-height: 1.2em;
+}

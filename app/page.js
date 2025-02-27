@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import Popup from "./components/Popup";
 import Projects from "./Projects";
+import About from "./About";
 
 export default function Home() {
   const [activePopup, setActivePopup] = useState(null);
@@ -47,6 +48,7 @@ export default function Home() {
         </div>
       </section>
       <Projects />
+      <About />
     </>
   );
 }
