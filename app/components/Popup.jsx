@@ -4,13 +4,13 @@ export default function Popup({ children, active, media }) {
   return (
     <span  className={styles.popup__span}>
       {children}
-      {active && (
+      {/* {active && (
         <div
         className={styles.__popup}
         >
           <video src={media} loop autoPlay playsInline muted />
         </div>
-      )}
+      )} */}
     </span>
   );
 }

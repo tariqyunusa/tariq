@@ -1,33 +1,34 @@
-.popup__span{
+.popup__span {
     position: relative;
     cursor: pointer;
-    text-decoration-line: underline;
-    text-decoration-style: wavy;
-    text-decoration-color: #d1d1d1;
-    text-decoration-thickness: 3px;
+    text-decoration: none; /* Remove default underline */
 }
-.__popup{
+
+.popup__span::after {
+    content: "";
     position: absolute;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: -4rem;
-    left: 50%;
-    transform: translateX("-50%");
-    z-index: 9999;
+    left: 0;
+    bottom: 3px;
+    width: 100%;
+    height: 9px;
+    background: linear-gradient(90deg, #ff7eb3, #ff65a3, #7a75ff, #50c9c3);
+    background-size: 200% 100%;
+    mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='10' viewBox='0 0 100 10'><path d='M0,5 Q 10,0 20,5 T 40,5 T 60,5 T 80,5 T 100,5' stroke='black' stroke-width='2' fill='transparent'/></svg>");
+    -webkit-mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='10' viewBox='0 0 100 10'><path d='M0,5 Q 10,0 20,5 T 40,5 T 60,5 T 80,5 T 100,5' stroke='black' stroke-width='2' fill='transparent'/></svg>");
+    animation: animate-gradient 3s infinite linear;
 }
-.__popup video{
-    width: 100px;
-    height: auto;
-    border-radius: 5px;
+.popup__span:hover::after {
+    animation-play-state: paused;
 }
-@media screen and (min-width: 230px) and (max-width: 500px) {
-    .__popup{
-        width: 50px;
-        height: 50px;
+
+@keyframes animate-gradient {
+    0% {
+        background-position: 100% 0;
+    }
+    50% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 0;
     }
 }
