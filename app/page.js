@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import Popup from "./components/Popup";
 import Projects from "./Projects";
 import About from "./About";
+import Play from "./Play";
 
 export default function Home() {
   const [activePopup, setActivePopup] = useState(null);
@@ -49,6 +50,7 @@ export default function Home() {
       </section>
       <Projects />
       <About />
+      <Play />
     </>
   );
 }
