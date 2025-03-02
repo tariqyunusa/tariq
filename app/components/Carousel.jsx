@@ -1,5 +1,7 @@
 import styles from '../styles/Carousel.module.css'
 import { FiPause } from "react-icons/fi";
+import { FiPlay } from "react-icons/fi";
+import { FiRotateCcw } from "react-icons/fi";
 
 export default function Carousel() {
     const wave ="/Assets/wave.webm"
