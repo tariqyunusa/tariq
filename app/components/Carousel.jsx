@@ -21,93 +21,99 @@ export default function Carousel() {
     const [videoIndex, setVideoIndex] = useState(0);
     const carouselRef = useRef(null);
     const videoRef = useRef([]);
-    const timelineRef = useRef(null);
+    const progressTimelineRef = useRef([]);
+    const indicatorRef = useRef([]);
+    const activeAnimRef = useRef(null);
 
     useEffect(() => {
-        timelineRef.current = gsap.timeline({ repeat: -1, paused: true });
-
-        showcase.forEach((item, idx) => {
-            timelineRef.current.to(carouselRef.current, {
-                x: `-${idx * 80}rem`, 
-                duration: 1,
-                ease: "power2.inOut",
-                onStart: () => {
-                    setVideoIndex(idx);
-                    const currentVideo = videoRef.current[idx];
-
-                    if (currentVideo) {
-                        currentVideo.currentTime = 0; 
-                        currentVideo.play();
-                    }
-
-             
-                    videoRef.current.forEach((video, i) => {
-                        if (i !== idx && video) {
-                            video.pause();
-                            video.currentTime = 0;
-                        }
-                    });
-                }
-            }).to({}, { duration: item.duration }); 
-        });
+        playVideo(videoIndex);
 
         ScrollTrigger.create({
             trigger: carouselRef.current,
             start: "top 80%",
             end: "bottom 20%",
-            onEnter: () => {
-                timelineRef.current.play();
-                videoRef.current[videoIndex]?.play();
-            },
-            onLeave: () => {
-                videoRef.current.forEach((video) => {
-                    if (video) {
-                        video.pause();
-                        video.currentTime = 0;
-                    }
-                });
-                timelineRef.current.pause();
-            },
-            onEnterBack: () => {
-                timelineRef.current.play();
-
-                const currentVideo = videoRef.current.find((vid, idx) => idx === videoIndex);
-                if (currentVideo) {
-                    currentVideo.currentTime = 0;
-                    currentVideo.play();
-                }
-            },
-            onLeaveBack: () => {
-                videoRef.current.forEach((video) => {
-                    if (video) {
-                        video.pause();
-                        video.currentTime = 0;
-                    }
-                });
-                timelineRef.current.pause();
-            },
+            onEnter: playCurrentVideo,
+            onLeave: resetAllVideos,
+            onEnterBack: playCurrentVideo,
+            onLeaveBack: resetAllVideos,
         });
 
         return () => {
-            timelineRef.current.kill();
             ScrollTrigger.killAll();
         };
     }, []);
 
+    const playVideo = (idx) => {
+        setVideoIndex(idx);
+
+        const currentVideo = videoRef.current[idx];
+        if (currentVideo) {
+            currentVideo.currentTime = 0;
+            currentVideo.play();
+        }
+
+        videoRef.current.forEach((video, i) => {
+            if (i !== idx && video) {
+                video.pause();
+                video.currentTime = 0;
+            }
+        });
+
+        if (activeAnimRef.current) {
+            activeAnimRef.current.kill();
+        }
+
+        activeAnimRef.current = gsap.timeline();
+        activeAnimRef.current.to(carouselRef.current, {
+            x: `-${idx * 80}rem`,
+            duration: 1.2,
+            ease: "power3.inOut",
+        });
+
+        // gsap.set(indicatorRef.current[idx].querySelector('.progress'), { width: '0%' });
+
+        // if (progressTimelineRef.current[idx]) {
+        //     progressTimelineRef.current[idx].kill();
+        // }
+
+        // progressTimelineRef.current[idx] = gsap.to(indicatorRef.current[idx].querySelector('.progress'), {
+        //     width: "100%",
+        //     duration: showcase[idx].duration,
+        //     ease: "linear"
+        // });
+    };
+
+    const playCurrentVideo = () => {
+        videoRef.current[videoIndex]?.play();
+    };
+
+    const resetAllVideos = () => {
+        videoRef.current.forEach((video) => {
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+            }
+        });
+    };
+
     const handlePlayPause = () => {
         if (isPlaying) {
-            timelineRef.current.pause();
             videoRef.current[videoIndex]?.pause();
+            gsap.globalTimeline.pause();
         } else {
-            timelineRef.current.play();
             videoRef.current[videoIndex]?.play();
+            gsap.globalTimeline.resume();
         }
         setIsPlaying(!isPlaying);
     };
 
     const handleRestart = () => {
-        timelineRef.current.restart();
+        playVideo(0);
         setIsPlaying(true);
+    };
+
+    const handleIndicatorClick = (idx) => {
+        playVideo(idx);
     };
 
     return (
@@ -131,12 +137,15 @@ export default function Carousel() {
                     <span
                         className={styles.carousel_video__identifier}
                         key={i}
-                        style={{ backgroundColor: videoIndex === i ? "#000" : "#B3B3B3" }}
-                    ></span>
+                        ref={(el) => (indicatorRef.current[i] = el)}
+                        onClick={() => handleIndicatorClick(i)}
+                    >
+                        <span className="progress"></span>
+                    </span>
                 ))}
 
                 <div className={styles.controls__playback} onClick={handlePlayPause}>
-                    {isPlaying ? <FiPause /> :  <FiPlay />}
+                    {isPlaying ? <FiPause /> : <FiPlay />}
                 </div>
                 <div className={styles.controls__restart} onClick={handleRestart}>
                     <FiRotateCcw />

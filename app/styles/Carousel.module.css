@@ -24,6 +24,26 @@
     padding-top: 4rem;
     /* transform: translateX(-50%); */
 }
+.carousel_video__identifier {
+    position: relative;
+    width: 20px;
+    height: 8px;
+    border-radius: 8px;
+    background-color: #B3B3B3;
+    overflow: hidden;
+    cursor: pointer; 
+}
+
+/* .carousel_video__identifier .progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: #000;
+    transition: width linear;
+} */
+
 .Carousel video{
     width: 100%;
     /* height: 100%; */
