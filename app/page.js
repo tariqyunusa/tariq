@@ -5,6 +5,7 @@ import Popup from "./components/Popup";
 import Projects from "./Projects";
 import About from "./About";
 import Play from "./Play";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const [activePopup, setActivePopup] = useState(null);
@@ -51,6 +52,7 @@ export default function Home() {
       <Projects />
       <About />
       <Play />
+      <Footer />
     </>
   );
 }
