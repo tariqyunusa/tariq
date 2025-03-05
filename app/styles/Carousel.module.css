@@ -87,7 +87,7 @@
 /* Media queries for mobile responsiveness */
 @media (max-width: 768px) {
     .Carousel {
-       width: 434px;
+       width: 352px;
        height: 572px;
        aspect-ratio: 9/16;
     }
