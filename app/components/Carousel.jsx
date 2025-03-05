@@ -97,11 +97,12 @@ export default function Carousel() {
     };
 
     const handlePlayPause = () => {
-        if (isPlaying) {
-            videoRef.current[videoIndex]?.pause();
+        const currentVideo = videoRef.current[videoIndex];
+        if (isPlaying && !currentVideo.paused) {
+            currentVideo.pause();
             gsap.globalTimeline.pause();
-        } else {
-            videoRef.current[videoIndex]?.play();
+        } else if (!isPlaying && currentVideo.paused) {
+            currentVideo.play();
             gsap.globalTimeline.resume();
         }
         setIsPlaying(!isPlaying);
