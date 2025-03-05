@@ -1,5 +1,4 @@
 .Carousel__wrapper{
-    
     /* width: 100%; */
     height: 100%;
     /* gap: 3rem; */
@@ -9,18 +8,19 @@
     position: relative;
 }
 .Carousel{
-    width: 54.875rem;
-    height: 32.875rem;
+    width: 54.875vw;
+    height: 100%;
     border-radius: 24px;
     overflow: hidden;
     aspect-ratio: 16/9;
+    /* padding: 2rem; */
 }
 .Carousel__redundant{
     height: 100%;
     display: flex;
     gap: 25rem;
     position: absolute;
-    left: 25%;
+    left: 20%;
     padding-top: 4rem;
     /* transform: translateX(-50%); */
 }
@@ -47,6 +47,7 @@
 .Carousel video{
     width: 100%;
     /* height: 100%; */
+    object-fit: cover;
     border-radius: 24px;
 }
 .carousel__identifier {
@@ -60,7 +61,6 @@
     gap: 1rem;
     align-items: center;
     margin-top: 2rem;
-
 }
     
 .carousel_video__identifier{
@@ -68,7 +68,6 @@
     width: 15px;
     height: 15px;
     background-color: #B3B3B3;
-   
 }
 .controls__playback{
     width: 50px;
@@ -82,3 +81,22 @@
     align-items: center;
     cursor: pointer;
 }
+
+/* Media queries for mobile responsiveness */
+/* @media (max-width: 768px) {
+    .Carousel {
+       width: 23rem;
+       height: 100%;
+       aspect-ratio: 9/16;
+    }
+    .Carousel__redundant{
+        left: 0;
+    }
+    .Carousel video{
+        height: 100%;
+    }
+    .Carousel__redundant{
+        padding: 2rem 0;
+        gap: 10rem;
+    }
+} */

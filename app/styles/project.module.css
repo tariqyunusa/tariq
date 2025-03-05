@@ -44,12 +44,12 @@
     font-family: "Canela", sans-serif;
     font-weight: 100;
     font-size: clamp(0.8rem, 5vw, 3.5rem);
-    width: 30%;
+    width: 50%;
 }
 .stack{
     display: flex;
     /* justify-content: flex-start; */
-    width: 25%;
+    width: 40%;
     height: 100%;
     align-items: center;
 }
@@ -82,9 +82,12 @@
 }
 @media screen and (min-width: 230px) and (max-width: 500px){
     .stack{
-        width: 100%;
+        width: 65%;
     }
     .filler{
         width: 0%;
+    }
+    .project h1, .hover_active h1{
+        width: 35%;
     }
 }

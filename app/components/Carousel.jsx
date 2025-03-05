@@ -1,4 +1,4 @@
-import styles from '../styles/Carousel.module.css';
+import styles from'../styles/Carousel.module.css';
 import { FiPause, FiPlay, FiRotateCcw } from "react-icons/fi";
 import { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
