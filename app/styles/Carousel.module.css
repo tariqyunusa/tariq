@@ -6,6 +6,7 @@
     justify-content: center;
     /* align-items: center; */
     position: relative;
+    overflow: hidden;
 }
 .Carousel{
     width: 54.875vw;
@@ -17,6 +18,7 @@
 }
 .Carousel__redundant{
     height: 100%;
+    overflow: hidden;
     display: flex;
     gap: 25rem;
     position: absolute;
@@ -83,10 +85,10 @@
 }
 
 /* Media queries for mobile responsiveness */
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
     .Carousel {
-       width: 23rem;
-       height: 100%;
+       width: 434px;
+       height: 572px;
        aspect-ratio: 9/16;
     }
     .Carousel__redundant{
@@ -97,6 +99,6 @@
     }
     .Carousel__redundant{
         padding: 2rem 0;
-        gap: 10rem;
+        /* gap: 10rem; */
     }
-} */
+}
