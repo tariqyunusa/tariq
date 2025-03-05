@@ -1,9 +1,9 @@
 import styles from '../styles/Popup.module.css'
-export default function Popup({ children, active, media }) {
+export default function Popup({ children, href }) {
   return (
-    <span  className={styles.popup__span}>
+    <a href={href}  className={styles.popup__span}>
       {children}
       
-    </span>
+    </a>
   );
 }

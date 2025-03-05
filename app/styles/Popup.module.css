@@ -2,6 +2,7 @@
     position: relative;
     cursor: pointer;
     text-decoration: none; 
+    color: #000;
 }
 
 .popup__span::after {
