@@ -65,9 +65,12 @@ export default function Carousel() {
 
         activeAnimRef.current = gsap.timeline();
         activeAnimRef.current.to(carouselRef.current, {
-            x: `-${idx * 80}rem`,
+            x: `-${idx * 38 }%`,
             duration: 1.2,
             ease: "power3.inOut",
+            // onComplete: () => {
+            //     setIsPlaying((prev) => {prev + 1});
+            // }
         });
 
         // gsap.set(indicatorRef.current[idx].querySelector('.progress'), { width: '0%' });

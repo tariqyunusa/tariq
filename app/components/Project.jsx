@@ -43,13 +43,13 @@ const Project = ({ projects }) => {
     <div className={styles.project__link}>
       {projects.map((project, idx) => (
         <div
-        
           key={idx}
           className={styles.project__link_both}
           onMouseEnter={() => handleMouseEnter(idx)}
           onMouseLeave={() => handleMouseLeave(idx)}
         >
-          <div
+          <a
+          href={project.route}
             className={styles.hover_active}
             ref={(el) => (hoverRefs.current[idx] = el)}
           >
@@ -58,7 +58,7 @@ const Project = ({ projects }) => {
                 <p key={i} className={styles.stack__item}>{p}</p>
             ))}</div>
             <p className={styles.link}>{project.link}</p>
-          </div>
+          </a>
           <div
             className={styles.project}
             ref={(el) => (projectRefs.current[idx] = el)}
