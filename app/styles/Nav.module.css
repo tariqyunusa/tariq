@@ -29,8 +29,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
-
+.navbar__list_item a{
+    text-decoration: none;
+    color: #000;
+}
 @media screen and (min-width: 320px) and(max-width: 600px) {
     .navbar__list_item{
         font-size: 12px;

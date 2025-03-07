@@ -4,18 +4,19 @@
     font-weight: 100;
     font-style: normal;
 }
-.about__section{
+.projects__section_page{
+    background-color: #F5F3EB;
     width: 99vw;
     height: 100vh;
-    padding-inline: 2rem;
     display: flex;
-    background-color: #F5F3EB;
+    padding-inline: 2rem;
     align-items: center;
+    
 }
-.about__section_text__wrapper{
+.projects__section_wrapper{
     max-width: 1024px;
 }
-.about__header{
+.projects__section_wrapper h1{
     font-family: "Canela", serif;
     font-weight: 100;
     font-size: clamp(1rem, 5vw, 3.5rem);

@@ -13,7 +13,7 @@ export default function Nav() {
         { name: "Projects", path: "/Projects" }, 
         { name: "Home", path: "/" }
     ];
-    const [activeLink, setActiveLink] = useState(links[links.length - 1]); // Default to "Home"
+    const [activeLink, setActiveLink] = useState(links[links.length - 1]); 
 
     return (
         <motion.nav className={styles.navbar} onClick={() => setShowNav(!showNav)}>
@@ -29,7 +29,7 @@ export default function Nav() {
                             className={styles.navbar__list_item}
                             onClick={() => {
                                 setActiveLink(link);
-                                setShowNav(false); // Close menu on selection
+                                setShowNav(false);
                             }}
                         >
                             <Link href={link.path}>{link.name}</Link>
