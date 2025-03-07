@@ -10,10 +10,10 @@ const Footer = () => {
       </div>
      </div>
       <div className={styles.footer__links}>
-      <a href="https://github.com/tariqyunusa"><FiGithub /></a>
-      <a href="https://www.instagram.com/tariikh_"><FiInstagram /></a>
-      <a href="https://www.linkedin.com/in/tariq-yunusa-a5414b248/"><FiLinkedin /></a>
-      <a href="https://x.com/tariqYA_"><FiTwitter /></a>
+      <a href="https://github.com/tariqyunusa" target='_blank' rel='noopener noreferrer'><FiGithub /></a>
+      <a href="https://www.instagram.com/tariikh_" target='_blank' rel='noopener noreferrer'><FiInstagram /></a>
+      <a href="https://www.linkedin.com/in/tariq-yunusa-a5414b248/" target='_blank' rel='noopener noreferrer'><FiLinkedin /></a>
+      <a href="https://x.com/tariqYA_" target='_blank' rel='noopener noreferrer'><FiTwitter /></a>
       </div>
     </footer>
   )
