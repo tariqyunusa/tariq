@@ -51,11 +51,12 @@ const Project = ({ projects }) => {
           <a
           href={project.route}
             className={styles.hover_active}
+            target='_blank' rel='noopener noreferrer'
             ref={(el) => (hoverRefs.current[idx] = el)}
           >
             <h1>{project.alt}</h1>
             <div className={styles.stack}>{project.stack.map((p, i) => (
-                <p key={i} className={styles.stack__item}>{p}</p>
+                <p key={i} className={styles.stack__item}>{p},</p>
             ))}</div>
             <p className={styles.link}>{project.link}</p>
           </a>
