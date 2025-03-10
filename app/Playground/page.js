@@ -7,7 +7,7 @@ export default function Playground() {
     const canvas_hover = "/Assets/canvas_hover.webm"
     const clip = "/Assets/clip.webm"
     const flip = "/Assets/flip.webm"
-    const hover_change = "/Assets/hover_change"
+    const hover_change = "/Assets/hover_change.webm"
     const nothing_scroll = "/Assets/nothing_scroll.webm"
     const z_scroll = "/Assets/z-scroll.webm"
     const zoom_scroll = "/Assets/zoom-scroll.webm"
