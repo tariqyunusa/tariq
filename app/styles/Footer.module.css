@@ -11,6 +11,7 @@
     /* display: flex;
     align-items: center; */
     padding-inline: 2rem;
+    position: relative;
     
 }
 .footer__wrapper{
@@ -40,4 +41,27 @@
 .footer__links a{
     text-decoration: none;
     color: #000;
+}
+.mail__success {
+    padding: 1rem;
+    background-color: #000;
+    color: #F5F3EB;
+    border-radius: 5px;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    display: flex;
+}
+.mail__success h1{
+    font-size: 1rem;
+}
+.mail{
+    cursor: pointer;
+    text-decoration: underline;
+    background: linear-gradient(90deg, #ff7eb3, #ff65a3, #7a75ff, #50c9c3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
 }
