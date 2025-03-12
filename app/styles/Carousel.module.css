@@ -20,7 +20,7 @@
     height: 100%;
     overflow: hidden;
     display: flex;
-    gap: 25rem;
+    gap: 2rem;
     position: absolute;
     left: 20%;
     padding-top: 4rem;
@@ -91,8 +91,10 @@
        height: 572px;
        aspect-ratio: 9/16;
     }
+ 
     .Carousel__redundant{
         left: 0;
+        gap: 1rem;
     }
     .Carousel video{
         height: 100%;

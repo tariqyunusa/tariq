@@ -1,4 +1,4 @@
-import styles from'../styles/Carousel.module.css';
+import styles from '../styles/Carousel.module.css';
 import { FiPause, FiPlay, FiRotateCcw } from "react-icons/fi";
 import { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
@@ -21,9 +21,9 @@ export default function Carousel() {
     const [videoIndex, setVideoIndex] = useState(0);
     const carouselRef = useRef(null);
     const videoRef = useRef([]);
-    const progressTimelineRef = useRef([]);
     const indicatorRef = useRef([]);
     const activeAnimRef = useRef(null);
+    const timeoutRef = useRef(null); 
 
     useEffect(() => {
         playVideo(videoIndex);
@@ -43,8 +43,24 @@ export default function Carousel() {
         };
     }, []);
 
+    useEffect(() => {
+        if (isPlaying) {
+            startAutoSwitch();
+        }
+        return () => clearTimeout(timeoutRef.current);
+    }, [videoIndex, isPlaying]);
+
+    const startAutoSwitch = () => {
+        clearTimeout(timeoutRef.current); 
+        timeoutRef.current = setTimeout(() => {
+            const nextIndex = (videoIndex + 1) % showcase.length; 
+            playVideo(nextIndex);
+        }, showcase[videoIndex].duration * 1000);
+    };
+
     const playVideo = (idx) => {
         setVideoIndex(idx);
+        clearTimeout(timeoutRef.current);
 
         const currentVideo = videoRef.current[idx];
         if (currentVideo) {
@@ -63,27 +79,18 @@ export default function Carousel() {
             activeAnimRef.current.kill();
         }
 
+        const carouselItemWidth = videoRef.current[0]?.offsetWidth || 0; 
+
         activeAnimRef.current = gsap.timeline();
         activeAnimRef.current.to(carouselRef.current, {
-            x: `-${idx * 38 }%`,
+            x: `-${idx * carouselItemWidth}px`,
             duration: 1.2,
             ease: "power3.inOut",
-            // onComplete: () => {
-            //     setIsPlaying((prev) => {prev + 1});
-            // }
         });
 
-        // gsap.set(indicatorRef.current[idx].querySelector('.progress'), { width: '0%' });
-
-        // if (progressTimelineRef.current[idx]) {
-        //     progressTimelineRef.current[idx].kill();
-        // }
-
-        // progressTimelineRef.current[idx] = gsap.to(indicatorRef.current[idx].querySelector('.progress'), {
-        //     width: "100%",
-        //     duration: showcase[idx].duration,
-        //     ease: "linear"
-        // });
+        if (isPlaying) {
+            startAutoSwitch();
+        }
     };
 
     const playCurrentVideo = () => {
@@ -104,9 +111,11 @@ export default function Carousel() {
         if (isPlaying && !currentVideo.paused) {
             currentVideo.pause();
             gsap.globalTimeline.pause();
+            clearTimeout(timeoutRef.current);
         } else if (!isPlaying && currentVideo.paused) {
             currentVideo.play();
             gsap.globalTimeline.resume();
+            startAutoSwitch();
         }
         setIsPlaying(!isPlaying);
     };
