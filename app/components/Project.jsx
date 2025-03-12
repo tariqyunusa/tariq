@@ -63,6 +63,7 @@ const Project = ({ projects }) => {
           <div
             className={styles.project}
             ref={(el) => (projectRefs.current[idx] = el)}
+            data-animation = 'header'
           >
             <h1>{project.name}</h1>
             <div className={styles.stack}>

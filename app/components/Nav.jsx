@@ -20,7 +20,7 @@ export default function Nav() {
 
   useEffect(() => {
     if(pathname === '/Contact'){
-      setActiveLink("Contac")
+      setActiveLink("Contact")
     } else if(pathname === '/Projects'){
       setActiveLink("Projects")
     }else if(pathname === '/Playground'){

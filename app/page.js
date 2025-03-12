@@ -6,17 +6,20 @@ import Projects from "./Projects";
 import About from "./About";
 import Play from "./Play";
 import Footer from "./components/Footer";
+import { textReveal } from "./utils/Animations";
 
 export default function Home() {
   const [activePopup, setActivePopup] = useState(null);
-
+useEffect(() => {
+  textReveal()
+},[])
   
 
   return (
     <>
       <section className={styles.section}>
         <div className={styles.hero__section_main_text}>
-          <h1>
+          <h1 data-animation = 'header'>
             Hi There, I am{" "}
             <Popup >
               Tariq
