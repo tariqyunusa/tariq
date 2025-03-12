@@ -1,13 +1,16 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./globals.css";
 import Lenis from "lenis";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-
+import Loader from "./components/Loader";
 
 export default function ClientLayout({ children }) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +24,6 @@ export default function ClientLayout({ children }) {
     });
 
     lenis.on("scroll", ScrollTrigger.update);
-
     const tick = (time) => lenis.raf(time * 1000);
     gsap.ticker.add(tick);
     gsap.ticker.lagSmoothing(0);
@@ -32,11 +34,18 @@ export default function ClientLayout({ children }) {
     };
   }, []);
 
-
-
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body style={{ overflow: isLoading ? "hidden" : "auto" }}>
+        {isLoading ? (
+          <Loader setLoading={setIsLoading} progress={progress} setProgress={setProgress} />
+        ) : (
+          <>
+          {children}
+          <Nav />
+          </>
+        )}
+      </body>
     </html>
   );
 }

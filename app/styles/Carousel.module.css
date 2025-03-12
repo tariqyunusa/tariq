@@ -84,7 +84,6 @@
     cursor: pointer;
 }
 
-/* Media queries for mobile responsiveness */
 @media (max-width: 768px) {
     .Carousel {
        width: 352px;
