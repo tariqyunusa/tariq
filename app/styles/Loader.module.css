@@ -1,28 +1,32 @@
+@font-face{
+    font-family: "Canela";
+    src: url('/fonts/CanelaDeck-Thin-Trial.otf');
+    font-weight: 100;
+    font-style: normal;
+}
 .loader__section {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    background: red; /* Change to black (#111) when tested */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
+background-color: #000;
     z-index: 9999;
   }
   
-  .loader__progress {
-    height: 5px;
-    width: 0%;
-    background: #00ffcc;
-    transition: width 0.3s ease-in-out;
+  .loader__filler {
+    width: 25%;
+    height: 100%; 
+    background: #111;
+    transform: translateY(100%); 
   }
-  
-  .loader__text {
-    margin-top: 10px;
-  }
-  
+.loader__progress{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #fff;
+    font-family: "Canela", sans-serif;
+    font-weight: 100;
+    font-size: clamp(1rem, 5vw, 3.5rem);
+}
