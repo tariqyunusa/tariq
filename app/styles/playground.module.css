@@ -17,7 +17,7 @@
     padding-inline: 2rem;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     flex-direction: column;
 }
 .__dump{
@@ -66,4 +66,16 @@
     font-family: "Canela", sans-serif;
     font-weight: 100;
     text-transform: uppercase;
+}
+@media screen and (min-width: 230px) and (max-width: 500px){
+    .__dump{
+        width: 96vw;
+        padding: 0;
+    }
+    .Playground__section{
+        padding-inline: 1rem;
+    }
+    .playground__text__wrapper{
+        padding: 0;
+    }
 }

@@ -24,7 +24,7 @@
 }
 .navbar__list_item{
     font-family: "Canela", serif;
-    font-size: clamp(0.875rem, 2vw, 1.5rem);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
     font-weight: 100;
     display: flex;
     justify-content: center;
@@ -34,9 +34,4 @@
 .navbar__list_item a{
     text-decoration: none;
     color: #000;
-}
-@media screen and (min-width: 320px) and(max-width: 600px) {
-    .navbar__list_item{
-        font-size: 12px;
-    }
 }
