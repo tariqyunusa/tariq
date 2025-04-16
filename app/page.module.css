@@ -22,3 +22,46 @@
   font-size: clamp(1rem, 5vw, 3.5rem);
   line-height: 1.2em;
 }
+.hero__work_status{
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background-color: #fff;
+  padding: 0.7rem 1rem;
+  font-family: "Canela", serif;
+  font-weight: 100;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+}
+.hero__work_status p{
+  text-align: center;
+}
+.indicator__status_hero{
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background-color: #28a745;
+  background: linear-gradient(
+    145deg,
+    #28a745,
+    #3ddc84,
+    #28a745
+  );
+  position: relative;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+}
+.indicator__status_hero::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 80%;
+  height: 40%;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  filter: blur(1px);
+  transform: rotate(-20deg);
+}

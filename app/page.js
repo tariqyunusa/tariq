@@ -18,13 +18,15 @@ useEffect(() => {
   return (
     <>
       <section className={styles.section}>
+      <div className={styles.hero__work_status} data-animation = 'header' ><div className={styles.indicator__status_hero}></div> <p>Available for work</p></div>
         <div className={styles.hero__section_main_text}>
+          
           <h1 data-animation = 'header'>
             Hi There, I am{" "}
             <Popup >
               Tariq
             </Popup>{" "}
-            Yunusa, a creative software engineer currently residing in yola, Nigeria who has{" "}
+            Yunusa, a creative software Developer currently residing in yola, Nigeria who has{" "}
             <Popup href={"https://github.com/tariqyunusa"}>
               3+ years
             </Popup>{" "}
