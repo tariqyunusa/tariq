@@ -1,39 +1,45 @@
 import gsap from "gsap";
+import { SplitText } from "gsap/SplitText";
+gsap.registerPlugin(SplitText);
+
+
 
 export const textReveal = () => {
-  console.log("textReveal function is running..."); 
+  const headers = document.querySelectorAll("[data-animation='header']");
 
-  requestAnimationFrame(() => {
-    const headers = document.querySelectorAll("[data-animation='header']");
+  if (!headers.length) return;
 
-    if (!headers.length) {
-      console.warn("No elements found for textReveal animation.");
-      return;
-    }
+  headers.forEach(header => {
+    const split = SplitText.create(header, {
+      type: "lines",
+      linesClass: "lineChild"
+    });
 
-    console.log(`Found ${headers.length} elements for textReveal`);
+    const lines = split.lines
+      .map(line => line.children[0])
+      .filter(child => child !== undefined);
 
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          console.log("Intersecting:", entry.target); 
+    gsap.set(lines, { yPercent: 100, autoAlpha: 0 });
+    gsap.set(header, { visibility: "visible" });
 
-          if (entry.isIntersecting) {
-            console.log("Animating:", entry.target.innerText); 
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          gsap.to(lines, {
+            yPercent: 0,
+            autoAlpha: 1,
+            duration: 1.2,
+            ease: "expo.out",
+            stagger: 0.1
+          });
 
-            gsap.fromTo(
-              entry.target,
-              { opacity: 0, y: 100 },
-              { opacity: 1, y: 0, ease: "power4.out", duration: 1.2, stagger: 0.5 }
-            );
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
 
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    headers.forEach((header) => observer.observe(header));
+    observer.observe(header);
   });
 };
+
+

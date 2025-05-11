@@ -43,3 +43,11 @@
 body{
   overflow-x: hidden;
 }
+.lineChild {
+  display: block;
+  overflow: hidden;
+}
+
+.lineChild > * {
+  display: inline-block;
+}

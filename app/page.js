@@ -9,9 +9,10 @@ import Footer from "./components/Footer";
 import { textReveal } from "./utils/Animations";
 
 export default function Home() {
-  const [activePopup, setActivePopup] = useState(null);
 useEffect(() => {
-  textReveal()
+  document.fonts.ready.then(() => {
+  textReveal(); 
+});
 },[])
   
 
@@ -20,8 +21,8 @@ useEffect(() => {
       <section className={styles.section}>
       <div className={styles.hero__work_status} data-animation = 'header' ><div className={styles.indicator__status_hero}></div> <p>Available for work</p></div>
         <div className={styles.hero__section_main_text}>
-          
-          <h1 data-animation = 'header'>
+        <h1 data-animation = 'header'>
+            <span>
             Hi There, I am{" "}
             <Popup >
               Tariq
@@ -30,7 +31,8 @@ useEffect(() => {
             <Popup href={"https://github.com/tariqyunusa"}>
               3+ years
             </Popup>{" "}
-            of experience building services, tools, products, and curating engaging experiences on the web.
+            experience building services, tools, products, and curating engaging experiences on the web.
+            </span>
           </h1>
         </div>
       </section>

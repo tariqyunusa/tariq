@@ -26,7 +26,7 @@ const Project = ({ projects }) => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: projectRefs.current[idx],
-            start: "top 80%", // triggers when project section is near the viewport
+            start: "top 80%", 
             toggleActions: "play none none none",
           },
         }
@@ -95,12 +95,12 @@ const Project = ({ projects }) => {
           <div
             className={styles.project}
             ref={(el) => (projectRefs.current[idx] = el)}
-            data-animation="header"
+            
           >
-            <h1>{project.name}</h1>
+            <h1 data-animation="header" >{project.name}</h1>
             <div className={styles.stack}>
               {project.stack.map((stack, stackIdx) => (
-                <p key={stackIdx} className={styles.stack__item}>
+                <p key={stackIdx} data-animation="header" className={styles.stack__item}>
                   {stack},
                 </p>
               ))}

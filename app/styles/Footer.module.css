@@ -33,7 +33,7 @@
 .footer__links{
     justify-self: end;
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     cursor: pointer;
     font-size: clamp(1rem, 2vw, 1.25rem);
     
