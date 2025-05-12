@@ -19,7 +19,7 @@
 .hero__section_main_text h1{
   font-family: "Canela", serif;
   font-weight: 100;
-  font-size: clamp(1rem, 5vw, 3.5rem);
+  font-size: clamp(1rem, 4vw, 3.5rem);
   line-height: 1.2em;
 }
 .hero__work_status{
@@ -51,7 +51,7 @@
     #28a745
   );
   position: relative;
-  box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+  /* box-shadow: 0 0 8px rgba(40, 167, 69, 0.6); */
 }
 .indicator__status_hero::after {
   content: "";

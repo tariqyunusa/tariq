@@ -41,7 +41,7 @@
   .hover_active h1 {
     font-family: "Canela", sans-serif;
     font-weight: 100;
-    font-size: clamp(0.8rem, 5vw, 3.5rem);
+    font-size: clamp(0.8rem, 4vw, 3.5rem);
     width: 50%;
   }
   
