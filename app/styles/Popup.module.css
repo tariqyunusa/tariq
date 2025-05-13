@@ -36,6 +36,8 @@
 
 @media screen and (min-width: 230px) and (max-width: 500px){
     .popup__span::after{
-        bottom: -4px;
+        bottom: -3px;
+        height: 10px;
+        
     }
 }

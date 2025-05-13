@@ -28,10 +28,15 @@
     font-weight: 500;
     text-transform: uppercase;
 }
-.play__text__paragraph{
+.play__text__paragraph{       
     font-family: "Canela", serif;
     font-weight: 100;
-    font-size: clamp(1rem, 4vw, 3.5rem);
+    font-size: clamp(1.5rem, 4vw, 3.5rem);
     line-height: 1.2em;
     max-width: 1024px;
+}
+@media screen and (min-width: 500px) and (max-width: 1248px) {
+.play{
+    height: 150vh;
+}
 }

@@ -18,6 +18,11 @@
 .about__header{
     font-family: "Canela", serif;
     font-weight: 100;
-    font-size: clamp(1rem, 4vw, 3.5rem);
+    font-size: clamp(1.5rem, 4vw, 3.5rem);
     line-height: 1.2em;
+}
+@media screen and (min-width: 230px) and (max-width: 500px) {
+    .about__section{
+        padding-inline: 1rem;
+    }
 }

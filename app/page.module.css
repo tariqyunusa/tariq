@@ -19,7 +19,7 @@
 .hero__section_main_text h1{
   font-family: "Canela", serif;
   font-weight: 100;
-  font-size: clamp(1rem, 4vw, 3.5rem);
+  font-size: clamp(1.5rem, 4vw, 3.5rem);
   line-height: 1.2em;
 }
 .hero__work_status{
@@ -64,4 +64,12 @@
   border-radius: 50%;
   filter: blur(1px);
   transform: rotate(-20deg);
+}
+@media screen and (min-width: 230px) and (max-width: 500px) {
+  .section{
+    padding-inline: 1rem;
+  }
+  .hero__work_status{
+    right: 1rem;
+  }
 }
