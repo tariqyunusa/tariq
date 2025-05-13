@@ -25,4 +25,7 @@
     .about__section{
         padding-inline: 1rem;
     }
+    .about__header{
+        line-height: 1.4em;
+    }
 }

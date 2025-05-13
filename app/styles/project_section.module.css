@@ -26,4 +26,7 @@
     .projects__section_page{
         padding-inline: 1rem;
     }
+    .projects__section_wrapper h1{
+        line-height: 1.4em;
+    }
 }

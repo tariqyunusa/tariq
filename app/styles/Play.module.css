@@ -39,4 +39,7 @@
 .play{
     height: 150vh;
 }
+.play__text__paragraph{
+    line-height: 1.4em;
+}
 }
