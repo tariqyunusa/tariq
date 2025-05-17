@@ -1,0 +1,24 @@
+.animatedWord {
+  white-space: nowrap;
+  position: relative;
+  display: inline-block;
+}
+
+.animated__letter {
+  display: inline-block;
+  position: relative;
+}
+
+.AnimatedLink {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.animatedWord__wrapper {
+  position: absolute;
+  top: 0;
+}

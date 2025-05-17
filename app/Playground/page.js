@@ -14,7 +14,8 @@ export default function Playground() {
     const nothing_scroll = "/Assets/nothing_scroll.webm"
     const z_scroll = "/Assets/z-scroll.webm"
     const zoom_scroll = "/Assets/zoom-scroll.webm"
-    const works = [{name: z_scroll, stack: ["threeJS", "GLSL"]}, {name: canvas_hover, stack: ["canvas"]}, {name: nothing_scroll, stack: ["GSAP"]}, {name: zoom_scroll, stack: ["threeJS","GLSL"]}, {name: error, stack: ["matterJs"]}, {name: clip, stack: ["GSAP"]}, {name: hover_change, stack: ["GSAP"]}, {name: flip, stack: ["GSAP", "GSAP-FLIP"]}, {name: wave, stack: ["threeJS", "GLSL"]}, {name: three, stack: ["threeJS"]}, {name: horizontal_scroll, stack: ["GSAP"]}]
+    const infinite_grid = "/Assets/infinite_grid.mp4"
+    const works = [{name: z_scroll, stack: ["threeJS", "GLSL"]}, {name: infinite_grid, stack: ["R3F", "GSAP"]}, {name: canvas_hover, stack: ["canvas"]}, {name: nothing_scroll, stack: ["GSAP"]}, {name: zoom_scroll, stack: ["threeJS","GLSL"]}, {name: error, stack: ["matterJs"]}, {name: clip, stack: ["GSAP"]}, {name: hover_change, stack: ["GSAP"]}, {name: flip, stack: ["GSAP", "GSAP-FLIP"]}, {name: wave, stack: ["threeJS", "GLSL"]}, {name: three, stack: ["threeJS"]}, {name: horizontal_scroll, stack: ["GSAP"]}]
     useEffect(() => {
         textReveal()
     },[])

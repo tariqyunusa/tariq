@@ -8,13 +8,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Carousel() {
     const wave = "/Assets/wave.webm";
-    const three = "/Assets/3d.webm";
+    const three = "/Assets/infinite_grid.mp4";
     const horizontal_scroll = "/Assets/horizontal_scroll.webm";
 
     const showcase = [
         { videoId: 0, video: wave, duration: 17 },
-        { videoId: 1, video: horizontal_scroll, duration: 17 },
-        { videoId: 2, video: three, duration: 23 }
+        { videoId: 1, video: three, duration: 19 },
+        { videoId: 2, video: horizontal_scroll, duration: 17 }
     ];
 
     const [isPlaying, setIsPlaying] = useState(true);

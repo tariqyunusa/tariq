@@ -1,13 +1,12 @@
 "use client"; 
-
 import { useEffect, useState } from "react";
 import "./globals.css";
 import Loader from "./components/Loader";
 import Nav from "./components/Nav";
 
- const metadata = {
-  title: "Your App",
-  description: "Your app description",
+ const metadata  = {
+  title: "Tariq",
+  description: "A creative software developer ",
 };
 
 export default function RootLayout({ children }) {

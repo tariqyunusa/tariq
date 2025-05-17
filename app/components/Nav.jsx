@@ -1,14 +1,17 @@
 "use client"
-import { useEffect, useState } from "react"
+
+import { useEffect, useState, useRef } from "react"
 import { FiChevronUp } from "react-icons/fi";
 import styles from '../styles/Nav.module.css'
 import { motion, AnimatePresence } from 'framer-motion'
-import Link from "next/link";
-import {usePathname} from "next/navigation"
+import { usePathname } from "next/navigation"
+import AnimatedLink from "./AnimatedLink";
 
 export default function Nav() {
     const [showNav, setShowNav] = useState(false)
-    const [activeLink, setActiveLink] = useState(); 
+    const [activeLink, setActiveLink] = useState("");
+    const pathname = usePathname();
+    const navRef = useRef(null); // ⬅️ reference for detecting outside click
 
     const links = [
         { name: "Contact", path: "/Contact" }, 
@@ -16,40 +19,36 @@ export default function Nav() {
         { name: "Projects", path: "/Projects" }, 
         { name: "Home", path: "/" }
     ];
-    const pathname = usePathname()
-
-  useEffect(() => {
-    if(pathname === '/Contact'){
-      setActiveLink("Contact")
-    } else if(pathname === '/Projects'){
-      setActiveLink("Projects")
-    }else if(pathname === '/Playground'){
-      setActiveLink("Playground")
-    }else{
-      setActiveLink("Home")
-    }
-  },[pathname])
-
     
+    useEffect(() => {
+        const matchedLink = links.find(link => link.path === pathname);
+        setActiveLink(matchedLink ? matchedLink.name : "Home");
+    }, [pathname]);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (navRef.current && !navRef.current.contains(event.target)) {
+                setShowNav(false);
+            }
+        };
+
+        if (showNav) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [showNav]);
 
     return (
-        <motion.nav className={styles.navbar} onClick={() => setShowNav(!showNav)}>
-            <motion.ul layout className={styles.navbar__ul} transition={{ duration: 0.6, type: "spring", stiffness: 60 }}>
+        <motion.nav ref={navRef} className={styles.navbar} onClick={() => setShowNav(!showNav)}>
+            <motion.ul layout className={styles.navbar__ul} transition={{ duration: 0.6, type: "tween" }}>
                 <AnimatePresence>
                     {showNav && links.map((link, idx) => (
-                        <motion.li 
-                            key={idx} 
-                            initial={{ opacity: 0 }} 
-                            animate={{ opacity: 1 }} 
-                            exit={{ opacity: 0 }} 
-                            transition={{ duration: 0.2, delay: 0.1 }} 
-                            className={styles.navbar__list_item}
-                            onClick={() => {
-                                setShowNav(false);
-                            }}
-                        >
-                            <Link href={link.path}>{link.name}</Link>
-                        </motion.li>
+                        <div key={idx} className={styles.navbar__list_item}>
+                            <AnimatedLink title={link.name} />
+                        </div>
                     ))}
                 </AnimatePresence>
                 {!showNav && (

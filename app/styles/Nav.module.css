@@ -19,10 +19,12 @@
 .navbar__ul{
     display: flex;
     flex-direction: column;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 .navbar__list_item{
+    position: relative;
     font-family: "Canela", serif;
     font-size: clamp(1.2rem, 2vw, 1.5rem);
     font-weight: 100;
@@ -34,4 +36,7 @@
 .navbar__list_item a{
     text-decoration: none;
     color: #000;
+}
+.relative__wrapper{
+    position: relative;
 }

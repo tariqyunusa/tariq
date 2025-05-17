@@ -5,7 +5,7 @@
     font-style: normal;
 }
 .footer{
-    width: 99vw;
+    width: 100vw;
     height: 100vh;
     background-color: #F5F3EB;
     /* display: flex;
@@ -21,7 +21,7 @@
 .footer__wrapper h1 {
     font-family: "Canela", serif;
     font-weight: 100;
-    font-size: clamp(1rem, 5vw, 3.5rem);
+    font-size: clamp(1rem, 4vw, 3.5rem);
     line-height: 1.2em;
 }
 .footer_redundant{

@@ -9,6 +9,7 @@ export default function Projects() {
         {name: "Campaign-V2", stack: ["Front-End Develoment", "Design", "Creative Direction"], alt: "Campaign-V2", link: "See Live", route: "https://campaign-v2.vercel.app/"},
         {name: "Node Server", stack: ["Back-End develoment"], alt: "Node Server", link: "See Live", route: "https://github.com/tariqyunusa/JSON-webserver"},
         {name: "Samsung Showcase", stack: ["Front-End Develoment", "Design", "Creative Direction"], alt: "Samsung Showcase", link: "See Live", route: "https://samsung-s24-showcase.vercel.app/"},
+        {name: "Tone Hunter", stack: ["Front-End Development"], alt: "Tone Hunter", link: "See Live", route: "https://www.npmjs.com/package/tone-hunter"},
         {name: "Youtube Downloader", stack: ["Scripting"], alt: "Youtube Downloader", link: "See Live", route: "https://github.com/tariqyunusa/youtube-downloader.git"},
     ]
     return(
