@@ -1,24 +1,16 @@
-"use client"; 
-import { useEffect, useState } from "react";
 import "./globals.css";
-import Loader from "./components/Loader";
-import Nav from "./components/Nav";
+import ClientWrapper from "./clientWrapper";
 
- const metadata  = {
+export const metadata = {
   title: "Tariq",
-  description: "A creative software developer ",
+  description: "A creative software developer",
 };
 
 export default function RootLayout({ children }) {
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
     <html lang="en">
-      <body >
-        {isLoading ? <Loader setLoading={setIsLoading} /> : <>
-        {children}
-        <Nav />
-        </>}
+      <body> 
+        <ClientWrapper>{children}</ClientWrapper>
       </body>
     </html>
   );
