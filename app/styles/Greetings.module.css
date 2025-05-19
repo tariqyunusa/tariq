@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "Canela";
+  src: url("/fonts/CanelaDeck-Thin-Trial.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+.greetings {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 5ch;
+}
+.greeting__headline {
+  font-family: "Canela", serif;
+  font-weight: 100;
+  font-size: clamp(1rem, 4vw, 3.5rem);
+  line-height: 1.2em;
+  text-align: center;
+  margin-right: 0.4rem;
+  position: relative;
+  cursor: pointer;
+  text-decoration: underline;
+  background: linear-gradient(90deg, #ff7eb3, #ff65a3, #7a75ff, #50c9c3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+}
+.greeting__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 230px) and (max-width: 500px) {
+    .greetings {
+        min-width: 4ch;
+    }
+}

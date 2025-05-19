@@ -7,6 +7,7 @@ import About from "./About";
 import Play from "./Play";
 import Footer from "./components/Footer";
 import { textReveal } from "./utils/Animations";
+import Greeting from "./components/Greeting";
 
 export default function Home() {
 useEffect(() => {
@@ -23,7 +24,7 @@ useEffect(() => {
         <div className={styles.hero__section_main_text}>
         <h1 data-animation = 'header'>
             <span>
-            Hi There, I am{" "}
+           <Greeting />, I am{" "}
             <Popup >
               Tariq
             </Popup>{" "}
