@@ -15,7 +15,7 @@
 .greeting__headline {
   font-family: "Canela", serif;
   font-weight: 100;
-  font-size: clamp(1rem, 4vw, 3.5rem);
+  font-size: clamp(1.5rem, 4vw, 3.5rem);
   line-height: 1.2em;
   text-align: center;
   margin-right: 0.4rem;
