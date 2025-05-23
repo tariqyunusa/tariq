@@ -28,9 +28,9 @@ export default function Contact() {
         <div className={styles.footer__wrapper}>
           <h1 data-animation="header">
             Got a question, offer, or idea in mind?{" "}
-            <span className={styles.mail} onClick={handleCopyEmail}>
+            <a href="mailto:tariikhyunusa@gmail.com" className={styles.mail} onClick={handleCopyEmail}>
               Mail me
-            </span>{" "}
+            </a>{" "}
             let's talk further.
           </h1>
           {copied && <div className={styles.mail__success}> ✅<h1>Mail Copied</h1></div>}

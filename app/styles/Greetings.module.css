@@ -35,6 +35,6 @@
 }
 @media screen and (min-width: 230px) and (max-width: 500px) {
     .greetings {
-        min-width: 4ch;
+        min-width: 5ch;
     }
 }
