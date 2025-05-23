@@ -32,14 +32,48 @@
   font-weight: 100;
   border-radius: 24px;
   display: flex;
+  flex-direction: row;
+  width: 200px;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  gap: 1rem;
+}
+.marquee {
+  display: inline-flex;
+  white-space: nowrap;
+  /* overflow: hidden; */
+  animation: scroll-left 13s linear infinite;
+  /* font-weight: bold; */
+  font-size: 1.2rem;
+  color: #000;
+}
+.marquee__wrapper{
+   position: relative;
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.7rem;
+  overflow: hidden;
+  width: fit-content; 
+  height: 1.2em;
+}
+.marquee span {
+  display: inline-block;
+  padding-right: 2rem;
+}
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 .hero__work_status p{
   text-align: center;
 }
-.indicator__status_hero{
+.indicator__main{
+  position: absolute;
   width: 0.8rem;
   height: 0.8rem;
   border-radius: 50%;
@@ -50,10 +84,19 @@
     #3ddc84,
     #28a745
   );
+}
+.indicator__status_hero{
+
+  z-index: 1;
   position: relative;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* box-shadow: 0 0 8px rgba(40, 167, 69, 0.6); */
 }
-.indicator__status_hero::after {
+.indicator__main::after {
   content: "";
   position: absolute;
   top: 1px;

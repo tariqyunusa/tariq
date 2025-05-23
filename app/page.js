@@ -10,29 +10,38 @@ import { textReveal } from "./utils/Animations";
 import Greeting from "./components/Greeting";
 
 export default function Home() {
-useEffect(() => {
-  document.fonts.ready.then(() => {
-  textReveal(); 
-});
-},[])
-  
+  useEffect(() => {
+    document.fonts.ready.then(() => {
+      textReveal();
+    });
+  }, []);
 
   return (
     <>
       <section className={styles.section}>
-      <div className={styles.hero__work_status} data-animation = 'header' ><div className={styles.indicator__status_hero}></div> <p>Available for work</p></div>
+        <div className={styles.hero__work_status}>
+          <div className={styles.indicator__status_hero}>
+            <div className={styles.indicator__main}></div>
+          </div>{" "}
+          <div className={styles.marquee__wrapper}>
+            <div className={styles.marquee}>{" "}
+              <span>Available for work {"  "}• </span>{" "}
+              <span> Send a mail{" "} • </span>{" "}
+              <span>Hire me {" "}• </span>{" "}
+              <span>Available for work {" "} • </span>{""}
+              <span> Send a mail {" "}• </span>{" "}
+              <span>Hire me {" "} • </span>{" "}
+            </div>
+          </div>
+        </div>
         <div className={styles.hero__section_main_text}>
-        <h1 data-animation = 'header'>
+          <h1 data-animation="header">
             <span>
-           <Greeting />, I am{" "}
-            <Popup >
-              Tariq
-            </Popup>{" "}
-            Yunusa, a creative software Developer currently residing in yola, Nigeria who has{" "}
-            <Popup href={"https://github.com/tariqyunusa"}>
-              3+ years
-            </Popup>{" "}
-            experience building services, tools, products, and curating engaging experiences on the web.
+              <Greeting />, I am <Popup>Tariq</Popup> Yunusa, a creative
+              software Developer currently residing in yola, Nigeria who has{" "}
+              <Popup href={"https://github.com/tariqyunusa"}>3+ years</Popup>{" "}
+              experience building services, tools, products, and curating
+              engaging experiences on the web.
             </span>
           </h1>
         </div>
