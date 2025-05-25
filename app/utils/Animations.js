@@ -12,7 +12,8 @@ export const textReveal = () => {
   headers.forEach(header => {
     const split = SplitText.create(header, {
       type: "lines",
-      linesClass: "lineChild"
+      linesClass: "lineChild",
+      
     });
 
     const lines = split.lines

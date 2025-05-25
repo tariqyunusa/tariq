@@ -38,6 +38,7 @@
   align-items: center;
   overflow: hidden;
   gap: 1rem;
+  cursor: pointer;
 }
 .marquee {
   display: inline-flex;
@@ -45,8 +46,11 @@
   /* overflow: hidden; */
   animation: scroll-left 13s linear infinite;
   /* font-weight: bold; */
-  font-size: 1.2rem;
+  font-size: clamp(0.7rem, 4vw, 1.2rem);
   color: #000;
+}
+.marquee:hover{
+  animation-play-state: paused;
 }
 .marquee__wrapper{
    position: relative;
@@ -57,9 +61,11 @@
   width: fit-content; 
   height: 1.2em;
 }
-.marquee span {
+.marquee a {
+  text-decoration: none;
   display: inline-block;
-  padding-right: 2rem;
+  padding-right: 1rem;
+  color: #000;
 }
 @keyframes scroll-left {
   0% {

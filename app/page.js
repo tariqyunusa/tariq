@@ -25,12 +25,18 @@ export default function Home() {
           </div>{" "}
           <div className={styles.marquee__wrapper}>
             <div className={styles.marquee}>{" "}
-              <span>Available for work {"  "}• </span>{" "}
-              <span> Send a mail{" "} • </span>{" "}
-              <span>Hire me {" "}• </span>{" "}
-              <span>Available for work {" "} • </span>{""}
-              <span> Send a mail {" "}• </span>{" "}
-              <span>Hire me {" "} • </span>{" "}
+              <a href="mailto:tariikhyunusa@gmail.com">Available for work {"  "}</a>{" "}
+              <a href="mailto:tariikhyunusa@gmail.com">• </a>
+              <a href="mailto:tariikhyunusa@gmail.com"> Send a mail{" "} </a>{" "}
+              <a href="mailto:tariikhyunusa@gmail.com">•</a>
+              <a href="mailto:tariikhyunusa@gmail.com">Hire me {" "} </a>{" "}
+              <a href="mailto:tariikhyunusa@gmail.com">•</a>
+              <a href="mailto:tariikhyunusa@gmail.com">Available for work {" "} </a>{""}
+              <a href="mailto:tariikhyunusa@gmail.com">•</a>
+              <a href="mailto:tariikhyunusa@gmail.com"> Send a mail {" "}</a>{" "}
+              <a href="mailto:tariikhyunusa@gmail.com">• </a>
+              <a href="mailto:tariikhyunusa@gmail.com">Hire me {" "}</a>{" "}
+              <a href="mailto:tariikhyunusa@gmail.com"> • </a>
             </div>
           </div>
         </div>
