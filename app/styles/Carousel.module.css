@@ -1,105 +1,18 @@
 .Carousel__wrapper{
-    /* width: 100%; */
-    height: 100%;
-    /* gap: 3rem; */
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    position: relative;
-    overflow: hidden;
-}
-.Carousel{
-    width: 54.875vw;
-    height: 100%;
-    border-radius: 24px;
-    overflow: hidden;
-    aspect-ratio: 16/9;
-    /* padding: 2rem; */
-}
-.Carousel__redundant{
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    gap: 2rem;
-    position: absolute;
-    left: 20%;
-    padding-top: 4rem;
-    /* transform: translateX(-50%); */
-}
-.carousel_video__identifier {
-    position: relative;
-    width: 20px;
-    height: 8px;
-    border-radius: 8px;
-    background-color: #B3B3B3;
-    overflow: hidden;
-    cursor: pointer; 
-}
-
-/* .carousel_video__identifier .progress {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0%;
-    background-color: #000;
-    transition: width linear;
-} */
-
-.Carousel video{
     width: 100%;
-    /* height: 100%; */
-    object-fit: cover;
-    border-radius: 24px;
-}
-.carousel__identifier {
-    padding: 0.8rem 1rem;
-    border-radius: 48px;
-    background-color: #fff;
-    display: flex;
-    /* margin-bottom: 1rem; */
-    position: absolute;
-    bottom: 0;
-    gap: 1rem;
-    align-items: center;
-    margin-top: 2rem;
-}
-    
-.carousel_video__identifier{
-    border-radius: 18px;
-    width: 15px;
-    height: 15px;
-    background-color: #B3B3B3;
-}
-.controls__playback{
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-    border-radius: 48px;
-    background-color: #B3B3B3;
-    color: #000;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
 }
-
-@media (max-width: 768px) {
-    .Carousel {
-       width: 352px;
-       height: 572px;
-       aspect-ratio: 9/16;
-    }
- 
-    .Carousel__redundant{
-        left: 0;
-        gap: 1rem;
-    }
-    .Carousel video{
-        height: 100%;
-    }
-    .Carousel__redundant{
-        padding: 2rem 0;
-        /* gap: 10rem; */
-    }
+.video__wrapper{
+    width: 80%;
+    height: 80%;
+    border-radius: 16px;
+}
+.video__Asset{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
 }
