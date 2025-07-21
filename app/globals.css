@@ -51,3 +51,7 @@ body{
 .lineChild > * {
   display: inline-block;
 }
+
+[data-animation="header"] {
+  visibility: hidden;
+}

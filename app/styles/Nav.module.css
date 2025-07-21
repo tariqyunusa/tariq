@@ -1,9 +1,9 @@
-@font-face{
+/* @font-face{
     font-family: "Canela";
     src: url('/fonts/CanelaDeck-Thin-Trial.otf');
     font-weight: 100;
     font-style: normal;
-}
+} */
 
 .navbar {
     padding: 1rem 2rem;

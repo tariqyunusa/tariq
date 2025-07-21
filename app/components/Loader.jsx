@@ -10,14 +10,11 @@ const Loader = ({ setLoading }) => {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
-
-      // Step 1: Slide in stairs (staggered)
       tl.fromTo(
         ".loader__filler",
         { y: "100%" },
         { y: "0%", stagger: 0.2, ease: "power4.out", duration: 1.5 }
       )
-        // Step 2: Animate progress from 0 → 100%
         .add(() => {
           gsap.to({}, {
             duration: 2, 
@@ -29,14 +26,12 @@ const Loader = ({ setLoading }) => {
             }
           });
         })
-        // Step 3: Slide out stairs in reverse order
         .to(".loader__filler", {
           y: "-100%",
           stagger: { each: 0.2, from: "end" },
           ease: "power4.inOut",
           duration: 1.5,
         })
-        // Step 4: Fade out loader
         .to(".loader__section", {
           opacity: 0,
           duration: 0.5,
@@ -44,7 +39,7 @@ const Loader = ({ setLoading }) => {
         });
     });
 
-    return () => ctx.revert(); // Cleanup GSAP animations on unmount
+    return () => ctx.revert();
   }, [setLoading]);
 
   return (
