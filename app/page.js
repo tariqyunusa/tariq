@@ -8,17 +8,23 @@ import Play from "./Play";
 import Footer from "./components/Footer";
 import { textReveal } from "./utils/Animations";
 import Greeting from "./components/Greeting";
+import font from 'next/font/local'
+import localFont from "next/font/local";
+
+
+const Canela = localFont({
+  src: '../public/fonts/CanelaDeck-Thin-Trial.otf',
+  display: 'block'
+})
 
 export default function Home() {
   useEffect(() => {
-    document.fonts.ready.then(() => {
       textReveal();
-    });
   }, []);
 
   return (
     <>
-      <section className={styles.section}>
+      <section className={`${styles.section} ${Canela.className}`}>
         <div className={styles.hero__work_status}>
           <div className={styles.indicator__status_hero}>
             <div className={styles.indicator__main}></div>

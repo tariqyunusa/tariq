@@ -1,17 +1,24 @@
 "use client"
-
 import { useEffect, useState, useRef } from "react"
 import { FiChevronUp } from "react-icons/fi";
 import styles from '../styles/Nav.module.css'
 import { motion, AnimatePresence } from 'framer-motion'
 import { usePathname } from "next/navigation"
 import AnimatedLink from "./AnimatedLink";
+import localFont from "next/font/local";
+
+
+const Canela = localFont({
+  src: '../../public/fonts/CanelaDeck-Thin-Trial.otf',
+  display: 'block'
+})
+
 
 export default function Nav() {
     const [showNav, setShowNav] = useState(false)
     const [activeLink, setActiveLink] = useState("");
     const pathname = usePathname();
-    const navRef = useRef(null); // ⬅️ reference for detecting outside click
+    const navRef = useRef(null); 
 
     const links = [
         { name: "Contact", path: "/Contact" }, 
@@ -42,7 +49,7 @@ export default function Nav() {
     }, [showNav]);
 
     return (
-        <motion.nav ref={navRef} className={styles.navbar} onClick={() => setShowNav(!showNav)}>
+        <motion.nav ref={navRef} className={`${styles.navbar} ${Canela.className}`} onClick={() => setShowNav(!showNav)}>
             <motion.ul layout className={styles.navbar__ul} transition={{ duration: 0.6, type: "tween" }}>
                 <AnimatePresence>
                     {showNav && links.map((link, idx) => (

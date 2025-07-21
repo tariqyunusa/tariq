@@ -31,7 +31,8 @@ export const textReveal = () => {
             autoAlpha: 1,
             duration: 1.2,
             ease: "expo.out",
-            stagger: 0.1
+            stagger: 0.1,
+
           });
 
           observer.unobserve(entry.target);
