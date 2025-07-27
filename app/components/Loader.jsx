@@ -15,15 +15,11 @@ const Loader = ({ setLoading }) => {
         defaults: { ease: "power4.out" },
         onComplete: () => setLoading(false),
       });
-
-      // Slide in fillers
       tl.fromTo(
         fillersRef.current,
         { y: "100%" },
         { y: "0%", duration: 1, stagger: 0.15 }
       );
-
-      // Fake progress using GSAP text plugin (or a quickSetter if using real %)
       tl.to(progressRef.current, {
         innerText: 100,
         duration: 1,
@@ -35,14 +31,15 @@ const Loader = ({ setLoading }) => {
           }
         }
       });
-
-      // Fade out progress + slide out fillers
       tl.to(progressRef.current, { y: "100%", opacity: 0, duration: 0.4 }, "+=0.2")
         .to(fillersRef.current, {
           y: "-100%",
           duration: 1,
           ease: "power4.inOut",
           stagger: { each: 0.15, from: "end" },
+          onComplete: () => {
+            setLoading(false)
+          }
         })
         .to(sectionRef.current, {
           opacity: 0,
