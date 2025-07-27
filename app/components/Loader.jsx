@@ -1,54 +1,76 @@
 "use client";
 
-import React, { useState, useLayoutEffect } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import styles from "../styles/Loader.module.css";
 import gsap from "gsap";
 
 const Loader = ({ setLoading }) => {
-  const [progress, setProgress] = useState(0);
+  const sectionRef = useRef(null);
+  const fillersRef = useRef([]);
+  const progressRef = useRef(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
+      const tl = gsap.timeline({
+        defaults: { ease: "power4.out" },
+        onComplete: () => setLoading(false),
+      });
+
+      // Slide in fillers
       tl.fromTo(
-        ".loader__filler",
+        fillersRef.current,
         { y: "100%" },
-        { y: "0%", stagger: 0.2, ease: "power4.out", duration: 1.5 }
-      )
-        .add(() => {
-          gsap.to({}, {
-            duration: 2, 
-            onUpdate: function () {
-              setProgress((prev) => (prev < 100 ? prev + 1 : 100));
-            },
-            onComplete: () => {
-              gsap.to(".loader__progress", { y: "100%", opacity: 0, duration: 0.5 });
-            }
-          });
-        })
-        .to(".loader__filler", {
+        { y: "0%", duration: 1, stagger: 0.15 }
+      );
+
+      // Fake progress using GSAP text plugin (or a quickSetter if using real %)
+      tl.to(progressRef.current, {
+        innerText: 100,
+        duration: 1,
+        snap: { innerText: 1 },
+        ease: "none",
+        onUpdate: () => {
+          if (progressRef.current) {
+            progressRef.current.innerText = `${Math.floor(progressRef.current.innerText)}%`;
+          }
+        }
+      });
+
+      // Fade out progress + slide out fillers
+      tl.to(progressRef.current, { y: "100%", opacity: 0, duration: 0.4 }, "+=0.2")
+        .to(fillersRef.current, {
           y: "-100%",
-          stagger: { each: 0.2, from: "end" },
+          duration: 1,
           ease: "power4.inOut",
-          duration: 1.5,
+          stagger: { each: 0.15, from: "end" },
         })
-        .to(".loader__section", {
+        .to(sectionRef.current, {
           opacity: 0,
-          duration: 0.5,
-          onComplete: () => setLoading(false),
+          duration: 0.4,
         });
-    });
+    }, sectionRef);
 
     return () => ctx.revert();
   }, [setLoading]);
 
   return (
-    <section className={`${styles.loader__section} loader__section`}>
-      <div className={`${styles.loader__filler} loader__filler`}></div>
-      <div className={`${styles.loader__filler} loader__filler`}></div>
-      <div className={`${styles.loader__filler} loader__filler`}></div>
-      <div className={`${styles.loader__filler} loader__filler`}></div>
-      <h1 className={`${styles.loader__progress} loader__progress`}>{progress}%</h1>
+    <section
+      ref={sectionRef}
+      className={`${styles.loader__section} loader__section`}
+    >
+      {[0, 1, 2, 3].map((_, i) => (
+        <div
+          key={i}
+          ref={(el) => (fillersRef.current[i] = el)}
+          className={`${styles.loader__filler} loader__filler`}
+        />
+      ))}
+      <h1
+        ref={progressRef}
+        className={`${styles.loader__progress} loader__progress`}
+      >
+        0%
+      </h1>
     </section>
   );
 };
