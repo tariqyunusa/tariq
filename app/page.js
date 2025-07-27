@@ -12,6 +12,7 @@ import font from 'next/font/local'
 import localFont from "next/font/local";
 
 
+
 const Canela = localFont({
   src: '../public/fonts/CanelaDeck-Thin-Trial.otf',
   display: 'block'
