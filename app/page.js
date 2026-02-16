@@ -19,8 +19,10 @@ const Canela = localFont({
 })
 
 export default function Home() {
-  useEffect(() => {
+   useEffect(() => {
+    document.fonts.ready.then(() => {
       textReveal();
+    });
   }, []);
 
   return (
